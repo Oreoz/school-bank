@@ -1,0 +1,10 @@
+<section>
+  {{#each model as |student|}}
+    <div>{{student.fullName}}</div>
+  {{/each}}
+</section>
+
+{{input value=firstName placeholder="First Name" class="form-control"}}
+{{input value=lastName placeholder="Last Name" class="form-control"}}
+
+<button class="btn btn-success" {{action "createStudent"}}>Create</button>
