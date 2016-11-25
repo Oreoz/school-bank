@@ -2,6 +2,16 @@
 
 module.exports = function(environment) {
   var ENV = {
+    firebase: {
+      apiKey: 'AIzaSyCfo1gOCmrfmNidtEBm6jU89cyL1YEmB8I',
+      authDomain: 'school-bank.firebaseapp.com',
+      databaseURL: 'https://school-bank.firebaseio.com',
+      storageBucket: 'school-bank.appspot.com',
+      messagingSenderId: '387016939339'
+    },
+    torii: {
+      sessionServiceName: 'session'
+    },
     modulePrefix: 'school-bank',
     environment: environment,
     rootURL: '/',
