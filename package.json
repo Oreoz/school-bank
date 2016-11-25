@@ -1,7 +1,7 @@
 {
   "name": "school-bank",
-  "version": "0.0.0",
-  "description": "Small description for school-bank goes here",
+  "version": "0.1.0",
+  "description": "Small web application to help track your student fake money.",
   "private": true,
   "directories": {
     "doc": "doc",
@@ -38,7 +38,6 @@
     "ember-export-application-global": "^1.0.5",
     "ember-load-initializers": "^0.5.1",
     "ember-resolver": "^2.0.3",
-    "ember-welcome-page": "^1.0.3",
     "loader.js": "^4.0.10"
   }
 }
