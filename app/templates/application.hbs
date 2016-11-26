@@ -10,6 +10,12 @@
     {{/active-link}}
 
     {{#active-link tagName="li" class="nav-item"}}
+      {{#link-to "dashboard" class="nav-link"}}
+        <i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard
+      {{/link-to}}
+    {{/active-link}}
+
+    {{#active-link tagName="li" class="nav-item"}}
       {{#link-to "students" class="nav-link"}}
         <i class="fa fa-graduation-cap" aria-hidden="true"></i> Students
       {{/link-to}}

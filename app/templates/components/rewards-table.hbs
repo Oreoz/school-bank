@@ -1,0 +1,21 @@
+{{#light-table table height='65vh' as |t|}}
+
+  {{t.head fixed=true}}
+
+  {{#t.body multiRowExpansion=false canExpand=true as |body|}}
+    {{#body.expanded-row as |row|}}
+      {{student-expanded-row
+        row=row
+        coins=coins
+        onAddCoin=(action 'onAddCoin')
+      }}
+    {{/body.expanded-row}}
+
+    {{#if isLoading}}
+      {{#body.loader}}
+        {{table-loader}}
+      {{/body.loader}}
+    {{/if}}
+  {{/t.body}}
+
+{{/light-table}}

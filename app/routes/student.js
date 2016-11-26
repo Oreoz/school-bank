@@ -6,9 +6,7 @@ export default Ember.Route.extend({
   },
   actions: {
     save(student) {
-      student.save().then(() => {
-        this.transitionTo('students');
-      });
+      student.save().then(() => { this.transitionTo('students'); });
     }
   }
 });
