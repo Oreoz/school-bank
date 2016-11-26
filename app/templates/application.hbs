@@ -1,9 +1,34 @@
-<div class="container">
-  {{#if session.isAuthenticated}}
-    Currently logged in as {{session.currentUser.displayName}}
-    <button {{action "signOut"}}>Sign out</button>
+<!-- Menu Bar -->
+<nav class="navbar navbar-light bg-faded">
+  {{link-to "School Bank" "index" class="navbar-brand"}}
+
+  <ul class="nav navbar-nav">
+    {{#active-link tagName="li" class="nav-item"}}
+      {{link-to "Home" "index" class="nav-link"}}
+    {{/active-link}}
+
+    {{#active-link tagName="li" class="nav-item"}}
+      {{link-to "Students" "students" class="nav-link"}}
+    {{/active-link}}
+  </ul>
+
+  <div class="float-xs-right">
+    {{#if session.isAuthenticated}}
+      Currently logged in as {{session.currentUser.displayName}}
+      <button class="btn btn-outline-danger" {{action "signOut"}}>
+        Sign out
+      </button>
+    {{else}}
+      <button class="btn btn-outline-success" {{action "signIn" "google"}}>
+        Google Sign In
+      </button>
+    {{/if}}
+  </div>
+</nav>
+
+<!-- Content -->
+{{#if session.isAuthenticated}}
+  <div class="container">
     {{outlet}}
-  {{else}}
-    <button {{action "signIn" "google"}}>Google Sign In</button>
-  {{/if}}
-</div>
+  </div>
+{{/if}}
