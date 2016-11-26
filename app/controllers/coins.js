@@ -5,19 +5,19 @@ export default Ember.Controller.extend({
 
   actions: {
     createStudent() {
-      let coin = this.store.createRecord('coin', {
+      let coinValue = this.store.createRecord('coin-value', {
         value: this.get('value')
       });
 
-      coin.save().then(() => {
+      coinValue.save().then(() => {
         this.set('value', null);
       });
     },
-    deleteCoin(coin) {
-      coin.destroyRecord();
+    deleteCoin(coinValue) {
+      coinValue.destroyRecord();
     },
-    editCoin(coin) {
-      this.transitionToRoute('coin', coin.get('id'));
+    editCoin(coinValue) {
+      this.transitionToRoute('coin', coinValue.get('id'));
     }
   }
 });

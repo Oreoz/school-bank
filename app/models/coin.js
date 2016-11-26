@@ -1,7 +1,7 @@
 import DS from 'ember-data';
 
-const { attr } = DS;
+const { belongsTo } = DS;
 
 export default DS.Model.extend({
-  value: attr('number')
+  coinValue: belongsTo('coin-value', { async: true, inverse: null})
 });
