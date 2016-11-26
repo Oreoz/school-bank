@@ -1,21 +1,18 @@
-{{#light-table table height='65vh' as |t|}}
+{{#each (sort-by "totalCoins:desc" students) as |student|}}
+  <div class="card">
+    <div class="card-block">
+      <div class="card-title">
+        <h4>{{student.fullName}}<span class="tag tag-default pull-right">{{student.totalCoins}}</span></h4>
+      </div>
 
-  {{t.head fixed=true}}
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 
-  {{#t.body multiRowExpansion=false canExpand=true as |body|}}
-    {{#body.expanded-row as |row|}}
-      {{student-expanded-row
-        row=row
-        coins=coins
-        onAddCoin=(action 'onAddCoin')
-      }}
-    {{/body.expanded-row}}
-
-    {{#if isLoading}}
-      {{#body.loader}}
-        {{table-loader}}
-      {{/body.loader}}
-    {{/if}}
-  {{/t.body}}
-
-{{/light-table}}
+      <!-- Buttons for adding coins -->
+      {{#each (sort-by "value" coins) as |coin|}}
+        <button class="btn btn-outline-success" {{action 'addCoin' coin student}}>
+          <i class="fa fa-plus" aria-hidden="true"></i> {{coin.value}}
+        </button>
+      {{/each}}
+    </div>
+  </div>
+{{/each}}

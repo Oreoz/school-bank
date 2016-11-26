@@ -4,7 +4,7 @@ export default Ember.Route.extend({
   model() {
     return Ember.RSVP.hash({
       students: this.store.findAll('student'),
-      coins: this.store.findAll('coin')
+      coins: this.store.findAll('coin-value')
     });
   }
 });
