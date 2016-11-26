@@ -1,3 +1,5 @@
+<h3>Student List</h3>
+
 {{#unless students}}
   <div class="text-center">
     <p>You don't have any students yet, consider adding some!</p>
@@ -7,9 +9,13 @@
     {{#each students as |student|}}
       <li class="list-group-item">
         {{student.fullName}}
+
+        <div class="pull-right">
+          <i class="fa fa-trash-o" aria-hidden="true" {{action 'delete' student}}></i>
+        </div>
+
         <div class="pull-right">
           <i class="fa fa-pencil" aria-hidden="true" {{action 'edit' student}}></i>
-          <i class="fa fa-trash-o" aria-hidden="true" {{action 'delete' student}}></i>
         </div>
       </li>
     {{/each}}

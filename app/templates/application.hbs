@@ -4,11 +4,21 @@
 
   <ul class="nav navbar-nav">
     {{#active-link tagName="li" class="nav-item"}}
-      {{link-to "Home" "index" class="nav-link"}}
+      {{#link-to "index" class="nav-link"}}
+        <i class="fa fa-home" aria-hidden="true"></i> Home
+      {{/link-to}}
     {{/active-link}}
 
     {{#active-link tagName="li" class="nav-item"}}
-      {{link-to "Students" "students" class="nav-link"}}
+      {{#link-to "students" class="nav-link"}}
+        <i class="fa fa-graduation-cap" aria-hidden="true"></i> Students
+      {{/link-to}}
+    {{/active-link}}
+
+    {{#active-link tagName="li" class="nav-item"}}
+      {{#link-to "students" class="nav-link"}}
+        <i class="fa fa-money" aria-hidden="true"></i> Money
+      {{/link-to}}
     {{/active-link}}
   </ul>
 
@@ -16,11 +26,11 @@
     {{#if session.isAuthenticated}}
       Currently logged in as {{session.currentUser.displayName}}
       <button class="btn btn-outline-danger" {{action "signOut"}}>
-        Sign out
+        <i class="fa fa-google" aria-hidden="true"></i> Sign out
       </button>
     {{else}}
       <button class="btn btn-outline-success" {{action "signIn" "google"}}>
-        Google Sign In
+        <i class="fa fa-google" aria-hidden="true"></i> Sign In
       </button>
     {{/if}}
   </div>

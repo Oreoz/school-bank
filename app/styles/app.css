@@ -1,0 +1,5 @@
+/* List Icons */
+.list-group-item .fa {
+  cursor: pointer;
+  padding: 4px;
+}
