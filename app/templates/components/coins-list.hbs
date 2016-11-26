@@ -6,7 +6,7 @@
   </div>
 {{else}}
   <ul class="list-group">
-    {{#each coins as |coin|}}
+    {{#each (sort-by 'value' coins) as |coin|}}
       <li class="list-group-item">
         {{coin.value}}
 
