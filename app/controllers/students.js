@@ -1,13 +1,26 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  firstName: null,
+  lastName: null,
+
   actions: {
     createStudent() {
-      let newPost = this.store.createRecord('student', {
+      let student = this.store.createRecord('student', {
         firstName: this.get('firstName'),
         lastName: this.get('lastName')
       });
-      newPost.save();
+
+      student.save().then(() => {
+        this.set('firstName', null);
+        this.set('lastName', null);
+      });
+    },
+    deleteStudent(student) {
+      student.destroyRecord();
+    },
+    editStudent(student) {
+      this.transitionToRoute('student', student.get('id'));
     }
   }
 });

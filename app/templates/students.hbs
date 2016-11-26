@@ -1,10 +1,25 @@
-<section>
-  {{#each model as |student|}}
-    <div>{{student.fullName}}</div>
-  {{/each}}
-</section>
+<div class="col-md-12">
+  <div class="col-md-6">
+    {{students-list
+      students=model
+      onDelete=(action 'deleteStudent')
+      onEdit=(action 'editStudent')
+    }}
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      {{input value=firstName placeholder="First Name" class="form-control"}}
+    </div>
 
-{{input value=firstName placeholder="First Name" class="form-control"}}
-{{input value=lastName placeholder="Last Name" class="form-control"}}
+    <div class="form-group">
+      {{input value=lastName placeholder="Last Name" class="form-control"}}
+    </div>
 
-<button class="btn btn-success" {{action "createStudent"}}>Create</button>
+    <div class="form-group pull-right">
+      <button class="btn btn-success" {{action "createStudent"}}>
+        Create Student
+      </button>
+    </div>
+
+  </div>
+</div>
