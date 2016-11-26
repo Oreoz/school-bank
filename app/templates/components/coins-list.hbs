@@ -1,0 +1,23 @@
+<h3>Coin List</h3>
+
+{{#unless coins}}
+  <div class="text-center">
+    <p>You don't have any coins yet, consider adding some!</p>
+  </div>
+{{else}}
+  <ul class="list-group">
+    {{#each coins as |coin|}}
+      <li class="list-group-item">
+        {{coin.value}}
+
+        <div class="pull-right">
+          <i class="fa fa-trash-o" aria-hidden="true" {{action 'delete' coin}}></i>
+        </div>
+
+        <div class="pull-right">
+          <i class="fa fa-pencil" aria-hidden="true" {{action 'edit' coin}}></i>
+        </div>
+      </li>
+    {{/each}}
+  </ul>
+{{/unless}}

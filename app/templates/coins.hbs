@@ -1,0 +1,24 @@
+<div class="col-md-12">
+  <div class="col-md-6">
+    {{coins-list
+      coins=model
+      onDelete=(action 'deleteCoin')
+      onEdit=(action 'editCoin')
+    }}
+  </div>
+
+  <!-- Student Creation Tool -->
+  <div class="col-md-6">
+    <h3>New Coin</h3>
+
+    <div class="form-group">
+      {{input value=value type="number" placeholder="Value" class="form-control"}}
+    </div>
+
+    <div class="form-group pull-right">
+      <button class="btn btn-success" {{action "createStudent"}}>
+        <i class="fa fa-plus" aria-hidden="true"></i> Create Coin
+      </button>
+    </div>
+  </div>
+</div>

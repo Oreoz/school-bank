@@ -6,19 +6,8 @@ moduleForComponent('students-list', 'Integration | Component | students list', {
 });
 
 test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
-
   this.render(hbs`{{students-list}}`);
 
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#students-list}}
-      template block text
-    {{/students-list}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$('h3').text().trim(), 'Student List');
+  assert.equal(this.$('p').text().trim(), 'You don\'t have any students yet, consider adding some!');
 });
