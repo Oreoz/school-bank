@@ -3,9 +3,13 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   actions: {
     addCoin(coinValue, student) {
-      let coin = this.store.createRecord('coin', { coinValue: coinValue });
-      student.get('coins').pushObject(coin);
-      coin.save().then(() => { student.save() });
+      let newCoin = this.store.createRecord('coin', { value: coinValue });
+
+      student.get('coins').addObject(newCoin);
+
+      newCoin.save().then(() => {
+        student.save();
+      });
     }
   }
 });

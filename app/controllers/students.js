@@ -17,7 +17,17 @@ export default Ember.Controller.extend({
       });
     },
     deleteStudent(student) {
-      student.destroyRecord();
+      let deletions = student.get('coins').map(function(coin) {
+        return coin.destroyRecord();
+      });
+
+      Ember.RSVP.all(deletions).then(() => {
+        return student.destroyRecord();
+      })
+      .catch(function(error) {
+        console.log(`An error occured while deleting a student: ${error}.`);
+      });
+
     },
     editStudent(student) {
       this.transitionToRoute('student', student.get('id'));

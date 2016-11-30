@@ -1,15 +1,27 @@
-{{#each (sort-by "totalCoins:desc" students) as |student|}}
+{{#each (sort-by "firstName" students) as |student|}}
   <div class="card">
     <div class="card-block">
       <div class="card-title">
         <h4>{{student.fullName}}<span class="tag tag-default pull-right">{{student.totalCoins}}</span></h4>
       </div>
 
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <p class="card-text">
+        {{! Fix this ...}}
+        <ul>
+          {{#each values as |value|}}
+          <li>
+            {{#each (filter-by "value" 5 student.coins) as |coin|}}
+              {{coin}}
+            {{/each}}
+            x {{value.value}}
+          </li>
+          {{/each}}
+        </ul>
+      </p>
 
       <!-- Buttons for adding coins -->
-      {{#each (sort-by "value" coins) as |coin|}}
-        <button class="btn btn-outline-success" {{action 'addCoin' coin student}}>
+      {{#each (sort-by "value" values) as |coin|}}
+        <button class="btn btn-outline-success" {{action 'addCoin' coin.value student}}>
           <i class="fa fa-plus" aria-hidden="true"></i> {{coin.value}}
         </button>
       {{/each}}
