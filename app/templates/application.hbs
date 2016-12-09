@@ -1,5 +1,5 @@
 <!-- Menu Bar -->
-<nav class="navbar navbar-light bg-faded">
+<nav class="navbar navbar-light bg-navbar">
   {{link-to "School Bank" "index" class="navbar-brand"}}
 
   <ul class="nav navbar-nav">
@@ -16,16 +16,30 @@
     {{/active-link}}
 
     {{#active-link tagName="li" class="nav-item"}}
-      {{#link-to "students" class="nav-link"}}
-        {{fa-icon "graduation-cap"}} Students
+      {{#link-to "student-track" class="nav-link"}}
+        {{fa-icon "line-chart"}} Student Track
       {{/link-to}}
     {{/active-link}}
 
-    {{#active-link tagName="li" class="nav-item"}}
-      {{#link-to "coins" class="nav-link"}}
-        {{fa-icon "money"}} Coins
-      {{/link-to}}
-    {{/active-link}}
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown">
+        {{fa-icon "lock"}} Administration
+      </a>
+      <div class="dropdown-menu">
+        {{! TODO: Fix the margin on the first menu object.}}
+        {{#link-to "administration" class="nav-link" style="margin-left: 1rem;"}}
+          {{fa-icon "tachometer"}} Dashboard
+        {{/link-to}}
+
+        {{#link-to "coins" class="nav-link"}}
+          {{fa-icon "money"}} Coins
+        {{/link-to}}
+
+        {{#link-to "students" class="nav-link"}}
+          {{fa-icon "graduation-cap"}} Students
+        {{/link-to}}
+      </div>
+    </li>
   </ul>
 
   <div class="float-xs-right">

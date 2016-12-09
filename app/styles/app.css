@@ -3,3 +3,7 @@
   cursor: pointer;
   padding: 4px;
 }
+
+.bg-navbar {
+  background-color: #80CBC4;
+}

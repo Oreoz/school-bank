@@ -12,6 +12,8 @@ Router.map(function() {
   this.route('coins');
   this.route('coin', { path: 'coin/:coin_id'});
   this.route('dashboard');
+  this.route('student-track');
+  this.route('administration');
 });
 
 export default Router;
