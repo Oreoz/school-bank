@@ -1,12 +1,12 @@
 <h2>Edit</h2>
 
 <div class="form-group">
-  <label for="coinValue">First Name</label>
+  <label for="coinValue">Coin Value</label>
   {{input value=model.value type="number" class="form-control"}}
 </div>
 
 <div class="form-group pull-right">
   <button {{action 'save' model}} class="btn btn-success">
-    <i class="fa fa-floppy-o" aria-hidden="true"></i> Save
+    {{fa-icon "floppy-o"}} Save
   </button>
 </div>

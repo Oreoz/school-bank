@@ -1,7 +1,7 @@
 <div class="lt-row">
   {{#each (sort-by "value" coins) as |coin|}}
     <button class="btn btn-outline-success" {{action 'add' coin}}>
-      <i class="fa fa-plus" aria-hidden="true"></i> {{coin.value}}
+      {{fa-icon "plus"}} {{coin.value}}
     </button>
   {{/each}}
 </div>

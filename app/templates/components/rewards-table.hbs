@@ -2,16 +2,19 @@
   <div class="card">
     <div class="card-block">
       <div class="card-title">
-        <h4>{{student.fullName}}<span class="tag tag-default pull-right">{{student.totalCoins}}</span></h4>
+        <h4>
+          {{student.fullName}}
+          <span class="tag tag-default pull-right">{{student.totalCoins}}</span>
+        </h4>
       </div>
 
       <p class="card-text">
         {{! Fix this ...}}
         <ul>
-          {{#each values as |value|}}
+          {{#each (sort-by 'value' values) as |value|}}
           <li>
-            {{#each (filter-by "value" 5 student.coins) as |coin|}}
-              {{coin}}
+            {{#each (filter-by "value" value.value student.coins) as |coin|}}
+              {{fa-icon "money"}}
             {{/each}}
             x {{value.value}}
           </li>
@@ -22,7 +25,7 @@
       <!-- Buttons for adding coins -->
       {{#each (sort-by "value" values) as |coin|}}
         <button class="btn btn-outline-success" {{action 'addCoin' coin.value student}}>
-          <i class="fa fa-plus" aria-hidden="true"></i> {{coin.value}}
+          {{fa-icon "plus"}} {{coin.value}}
         </button>
       {{/each}}
     </div>
